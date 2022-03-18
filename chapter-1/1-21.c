@@ -1,30 +1,44 @@
 /*
-    Exercise 1-20. Write a program detab that replaces tabs in the input with the
-    proper number of blanks to space to the next tab stop. Assume a fixed set of
-    tab stops, say every n columns. Should n be a variable or a symbolic parameter?
+    Write a program entab that replaces strings of blanks by the
+    minimum number of tabs and blanks to achieve the same spacing. Use the
+    same tab stops as for detab. When either a tab or a single blank would suffice
+    to reach a tab stop, which should be given preference?
 */
 
 #include <stdio.h>
 
-#define TAB 8
+#define TAB 4
 
 int main() {
-    int col = 0;
     int c;
+    int ns, pos;
+    ns = pos = 0;
 
-    while((c = getchar()) != EOF) {
-        if (c == '\t') {
-            int tabstop = TAB - (col % TAB);
+    while ((c = getchar()) != EOF) {
+        if (c == ' ') {
+            ++ns;
 
-            for (int i = 0; i < tabstop; ++i) {
-                putchar(' ');
-                ++col;
+            // convert space to tab
+            int tabstop = TAB - (pos % TAB);
+            if (ns == tabstop) {
+                putchar('\t');
+                pos = pos + tabstop;
+                ns = 0;
             }
-        } else if (c == '\n') {
-            putchar(c);
         } else {
+            // print remaining space
+            for (int i = 0; i < ns; ++i)  {
+                putchar(' ');
+                ++pos;
+            }
+            ns = 0;
+            
             putchar(c);
-            ++col;
+            ++pos;
+        }
+
+        if (c == '\n') {
+            pos = 0;
         }
     }
 
