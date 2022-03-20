@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-#define TAB 4
+#define TAB 8
 
 int main() {
     int c;
