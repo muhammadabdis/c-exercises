@@ -60,8 +60,8 @@ int getlinechars(char linechars[], int maxlen) {
         // Set previous value
         c = d;
     }
-
-    linechars[i] = '\0';
+    linechars[i] = c;
+    linechars[i+1] = '\0';
     
     return i;
 }
