@@ -27,16 +27,61 @@ int getlinechars(char linechars[], int maxlen) {
     int comment = OUT;
     char commenttype = '\0';
 
-    int i = 0;
     c = getchar();
+
+    int quote = OUT;
+    char quotetype = '\0';
+
+    if (c == '"') {
+        quote = IN;
+        quotetype = 'd';
+    }
+
+    if (c == '\'') {
+        quote = IN;
+        quotetype = 's';
+    }
+
+    int i = 0;
     while ((d = getchar()) != EOF && i < maxlen - 1) {
+        // Check quote
+        if (
+            comment == OUT &&
+            c != '\\' && d == '"'
+        ) {
+            if (quote == IN && quotetype == 'd') {
+                quote = OUT;
+            } else if (quote == OUT) {
+                quote = IN;
+                quotetype = 'd';
+            }
+        }
+
+        if (
+            comment == OUT &&
+            c != '\\' && d == '\''
+        ) {
+            if (quote == IN && quotetype == 's') {
+                quote = OUT;
+            } else if (quote == OUT) {
+                quote = IN;
+                quotetype = 's';
+            }
+        }
+
         // Check opening comment
-        if (comment == OUT && c == '/' && d == '/') {
+        if (
+            comment == OUT && quote == OUT &&
+            c == '/' && d == '/'
+        ) {
             comment = IN;
             commenttype = 'i';
         }
 
-        if (comment == OUT && c == '/' && d == '*') {
+        if (
+            comment == OUT && quote == OUT &&
+            c == '/' && d == '*'
+        ) {
             comment = IN;
             commenttype = 'm';
         }
@@ -48,7 +93,7 @@ int getlinechars(char linechars[], int maxlen) {
         }
 
         // Check closing comment
-        if (comment == IN && commenttype == 'i' && c == '\n') {
+        if (comment == IN && commenttype == 'i' && d == '\n') {
             comment = OUT;
         }
 
@@ -60,6 +105,7 @@ int getlinechars(char linechars[], int maxlen) {
         // Set previous value
         c = d;
     }
+
     linechars[i] = c;
     linechars[i+1] = '\0';
     
