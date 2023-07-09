@@ -29,9 +29,8 @@ int main()
 
     if (max > 0)
     {
-        printf("Longest Input Lines\n");
-        printf("Input Length: %d\n", max);
-        printf("Input Line: %s\n", longest);
+        printf("Character length: %d\n", max);
+        printf("%s", longest);
     }
 
     return 0;
