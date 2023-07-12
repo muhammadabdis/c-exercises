@@ -5,26 +5,41 @@
 
 #include <stdio.h>
 
-#define MAXCHARS 1000
+#define MAXLINE 1000
+
+int getlinechars(char line[], int maxline);
 
 int main()
 {
-    int len, c;
-    char chars[MAXCHARS];
+    int len;
+    char line[MAXLINE];
 
-    len = 0;
-    while ((c = getchar()) != EOF)
+    while ((len = getlinechars(line, MAXLINE)) > 0)
     {
-        chars[len] = c;
-        ++len;
-    }
-
-    chars[len] = '\0';
-
-    if (len >= 80)
-    {
-        printf("\n%s", chars);
+        if (len > 80) {
+            printf("%s", line);
+        }
     }
 
     return 0;
+}
+
+int getlinechars(char s[], int lim)
+{
+    int c, i;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+    {
+        s[i] = c;
+    }
+
+    if (c == '\n')
+    {
+        s[i] = c;
+        ++i;
+    }
+
+    s[i] = '\0';
+
+    return i;
 }

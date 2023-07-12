@@ -4,6 +4,7 @@
 */
 
 #include <stdio.h>
+
 #define MAXLINE 1000
 
 int getlinechars(char line[], int maxline);
@@ -18,7 +19,6 @@ int main()
     {
         if ((trimmedlen = removetrail(line)) > 0)
         {
-            printf("Character length: %d\n", trimmedlen);
             printf("%s", line);
         }
     }

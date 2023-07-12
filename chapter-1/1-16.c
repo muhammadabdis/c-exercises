@@ -5,32 +5,19 @@
 */
 
 #include <stdio.h>
+
 #define MAXLINE 1000
 
 int getlinechars(char line[], int maxline);
-void copy(char to[], char from[]);
 
 int main()
 {
     int len;
-    int max;
     char line[MAXLINE];
-    char longest[MAXLINE];
 
-    max = 0;
     while ((len = getlinechars(line, MAXLINE)) > 0)
     {
-        if (len > max)
-        {
-            max = len;
-            copy(longest, line);
-        }
-    }
-
-    if (max > 0)
-    {
-        printf("Character length: %d\n", max);
-        printf("%s", longest);
+        printf("%d\n", len);
     }
 
     return 0;
@@ -54,15 +41,4 @@ int getlinechars(char s[], int lim)
     s[i] = '\0';
 
     return i;
-}
-
-void copy(char to[], char from[])
-{
-    int i;
-
-    i = 0;
-    while ((to[i] = from[i]) != '\0')
-    {
-        ++i;
-    }
 }
