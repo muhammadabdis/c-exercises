@@ -4,7 +4,7 @@
   quotes, both single and double, escape sequences, and comments.
 */
 
-#include<stdio.h>
+#include <stdio.h>
 
 int inbraces, inparenthesis, inbrackets;
 
