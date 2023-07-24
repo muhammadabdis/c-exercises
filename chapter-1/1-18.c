@@ -59,7 +59,8 @@ int removetrail(char line[])
         --i;
     }
 
-    if (i >= 0) {
+    if (i >= 0)
+    {
         ++i;
         line[i] = '\n';
         ++i;

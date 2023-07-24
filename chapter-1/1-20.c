@@ -8,21 +8,29 @@
 
 #define TAB 8
 
-int main() {
+int main()
+{
     int col = 0;
     int c;
 
-    while((c = getchar()) != EOF) {
-        if (c == '\t') {
+    while ((c = getchar()) != EOF)
+    {
+        if (c == '\t')
+        {
             int tabstop = TAB - (col % TAB);
 
-            for (int i = 0; i < tabstop; ++i) {
+            for (int i = 0; i < tabstop; ++i)
+            {
                 putchar(' ');
                 ++col;
             }
-        } else if (c == '\n') {
+        }
+        else if (c == '\n')
+        {
             putchar(c);
-        } else {
+        }
+        else
+        {
             putchar(c);
             ++col;
         }

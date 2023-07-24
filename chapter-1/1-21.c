@@ -9,35 +9,43 @@
 
 #define TAB 8
 
-int main() {
+int main()
+{
     int c;
     int ns, pos;
     ns = pos = 0;
 
-    while ((c = getchar()) != EOF) {
-        if (c == ' ') {
+    while ((c = getchar()) != EOF)
+    {
+        if (c == ' ')
+        {
             ++ns;
 
             // convert space to tab
             int tabstop = TAB - (pos % TAB);
-            if (ns == tabstop) {
+            if (ns == tabstop)
+            {
                 putchar('\t');
                 pos = pos + tabstop;
                 ns = 0;
             }
-        } else {
+        }
+        else
+        {
             // print remaining space
-            for (int i = 0; i < ns; ++i)  {
+            for (int i = 0; i < ns; ++i)
+            {
                 putchar(' ');
             }
             pos = pos + ns;
             ns = 0;
-            
+
             putchar(c);
             ++pos;
         }
 
-        if (c == '\n') {
+        if (c == '\n')
+        {
             pos = 0;
         }
     }

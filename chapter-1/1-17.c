@@ -16,7 +16,8 @@ int main()
 
     while ((len = getlinechars(line, MAXLINE)) > 0)
     {
-        if (len > 80) {
+        if (len > 80)
+        {
             printf("%s", line);
         }
     }

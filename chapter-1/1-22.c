@@ -13,43 +13,55 @@
 
 int getlinechars(char linechars[], int maxlen);
 
-int main() {
+int main()
+{
     int len;
     char linechars[MAXLEN];
 
-    while((len = getlinechars(linechars, MAXLEN)) > 0) {
+    while ((len = getlinechars(linechars, MAXLEN)) > 0)
+    {
         printf("%s", linechars);
     }
 }
 
-int getlinechars(char linechars[], int maxlen) {
+int getlinechars(char linechars[], int maxlen)
+{
     int i, c;
 
     int ls = 0;
     int pos = 0;
 
-    for (i = 0; i < maxlen - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+    for (i = 0; i < maxlen - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+    {
         linechars[i] = c;
 
-        if (c == '\t') {
+        if (c == '\t')
+        {
             pos = pos + TAB - (pos % TAB);
-        } else {
+        }
+        else
+        {
             ++pos;
         }
 
-        if (c == ' ') {
+        if (c == ' ')
+        {
             // Update last space
             ls = i;
         }
 
-        if (pos > MAXLENCHARS) {
-            if (linechars[ls] == ' ') {
+        if (pos > MAXLENCHARS)
+        {
+            if (linechars[ls] == ' ')
+            {
                 // Replace prev space to newline
                 linechars[ls] = '\n';
 
                 // Reset position
                 pos = i - ls;
-            } else {
+            }
+            else
+            {
                 // Add new line before character
                 linechars[i] = '\n';
                 ++i;
@@ -64,7 +76,8 @@ int getlinechars(char linechars[], int maxlen) {
         }
     }
 
-    if (c == '\n') {
+    if (c == '\n')
+    {
         linechars[i] = c;
         ++i;
     }
