@@ -6,16 +6,16 @@
 #include <stdio.h>
 
 int bitsize();
-unsigned rightrot(unsigned x, int n);
+int rightrot(int x, int n);
 
 int main()
 {
-    printf("right rotate result: %d", rightrot(2, 1));
+    printf("right rotate result: %d", rightrot(1, 1));
 
     return 0;
 }
 
-unsigned rightrot(unsigned x, int n)
+int rightrot(int x, int n)
 {
     int rbit;
 
