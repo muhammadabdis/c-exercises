@@ -45,7 +45,7 @@ void escape(char s[], char t[])
 {
     int i, j;
 
-    for (i = j = 0; i != '\0'; i++) {
+    for (i = j = 0; t[i] != '\0'; i++) {
         switch (t[i])
         {
         case '\n':
