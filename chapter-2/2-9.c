@@ -20,9 +20,7 @@ int bitcount(int x)
     int n;
 
     for (n = 0; x != 0; n++)
-    {
         x &= x - 1;
-    }
 
     return n;
 }

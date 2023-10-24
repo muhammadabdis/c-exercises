@@ -32,9 +32,7 @@ int getlinechars(char line[], int lim)
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF; ++i)
-    {
         line[i] = c;
-    }
 
     line[i] = '\0';
 
@@ -45,7 +43,8 @@ void escape(char s[], char t[])
 {
     int i, j;
 
-    for (i = j = 0; t[i] != '\0'; i++) {
+    for (i = j = 0; t[i] != '\0'; i++)
+    {
         switch (t[i])
         {
         case '\n':

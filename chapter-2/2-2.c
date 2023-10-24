@@ -15,9 +15,7 @@ int main()
     char line[MAXLINE];
 
     while ((len = getlinechars(line, MAXLINE)) > 0)
-    {
         printf("%s", line);
-    }
 
     return 0;
 }
@@ -30,13 +28,11 @@ int getlinechars(char s[], int lim)
     {
         c = getchar();
 
-        if (c == EOF) {
+        if (c == EOF)
             break;
-        }
 
-        if (c == '\n') {
+        if (c == '\n')
             break;
-        }
 
         s[i] = c;
     }

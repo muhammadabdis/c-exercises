@@ -33,9 +33,7 @@ int main()
         }
 
         if (c == '"' || c == '\'')
-        {
             inquote(c);
-        }
 
         checkincomplete(c);
     }
@@ -82,8 +80,7 @@ void incomment(int type)
     if (type == 's')
     {
         while ((c = getchar()) != '\n')
-        {
-        }
+            ;
     }
 }
 

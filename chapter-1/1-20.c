@@ -26,9 +26,7 @@ int main()
             }
         }
         else if (c == '\n')
-        {
             putchar(c);
-        }
         else
         {
             putchar(c);

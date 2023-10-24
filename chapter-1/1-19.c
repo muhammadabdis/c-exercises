@@ -29,15 +29,10 @@ int getlinechars(char line[], int lim)
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-    {
         line[i] = c;
-    }
 
     if (c == '\n')
-    {
-        line[i] = c;
-        ++i;
-    }
+        line[i++] = c;
 
     line[i] = '\0';
 
@@ -51,15 +46,12 @@ void reverse(char line[])
 
     i = j = 0;
     while (line[j] != '\0')
-    {
         ++j;
-    }
+
     --j;
 
     if (line[j] == '\n')
-    {
         --j;
-    }
 
     while (i < j)
     {

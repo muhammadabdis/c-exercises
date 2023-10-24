@@ -18,9 +18,7 @@ int main()
     while ((len = getlinechars(line, MAXLINE)) > 0)
     {
         if ((trimmedlen = removetrail(line)) > 0)
-        {
             printf("%s", line);
-        }
     }
 
     return 0;
@@ -31,15 +29,10 @@ int getlinechars(char s[], int lim)
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-    {
         s[i] = c;
-    }
 
     if (c == '\n')
-    {
-        s[i] = c;
-        ++i;
-    }
+        s[i++] = c;
 
     s[i] = '\0';
 
@@ -52,12 +45,11 @@ int removetrail(char line[])
 
     for (i = 0; line[i] != '\n'; ++i)
         ;
+
     --i;
 
     while (line[i] == ' ' || line[i] == '\t')
-    {
         --i;
-    }
 
     if (i >= 0)
     {

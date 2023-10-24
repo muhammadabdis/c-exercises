@@ -16,7 +16,7 @@ int main()
 {
     char s1[MAXLINE];
     char s2[MAXLINE];
-    
+
     printf("s1: ");
     getlinechars(s1, MAXLINE);
 
@@ -38,10 +38,7 @@ void getlinechars(char s[], int lim)
         s[i] = c;
 
     if (c == '\n')
-    {
-        s[i] = c;
-        ++i;
-    }
+        s[i++] = c;
 
     s[i] = '\0';
 }
@@ -50,11 +47,12 @@ int any(char s1[], char s2[])
 {
     int i, j;
 
-    for (i = 0; s1[i] != '\n'; ++i) {
-        for (j = 0; s2[j] != '\n'; ++j) {
-            if (s1[i] == s2[j]) {
+    for (i = 0; s1[i] != '\n'; ++i)
+    {
+        for (j = 0; s2[j] != '\n'; ++j)
+        {
+            if (s1[i] == s2[j])
                 return i;
-            }
         }
     }
 

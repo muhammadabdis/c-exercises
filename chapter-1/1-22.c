@@ -19,9 +19,7 @@ int main()
     char linechars[MAXLEN];
 
     while ((len = getlinechars(linechars, MAXLEN)) > 0)
-    {
         printf("%s", linechars);
-    }
 }
 
 int getlinechars(char linechars[], int maxlen)
@@ -36,19 +34,12 @@ int getlinechars(char linechars[], int maxlen)
         linechars[i] = c;
 
         if (c == '\t')
-        {
             pos = pos + TAB - (pos % TAB);
-        }
         else
-        {
             ++pos;
-        }
 
         if (c == ' ')
-        {
-            // Update last space
-            ls = i;
-        }
+            ls = i; // Update last space
 
         if (pos > MAXLENCHARS)
         {

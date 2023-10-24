@@ -34,9 +34,8 @@ int main()
         {
             // print remaining space
             for (int i = 0; i < ns; ++i)
-            {
                 putchar(' ');
-            }
+
             pos = pos + ns;
             ns = 0;
 
@@ -45,9 +44,7 @@ int main()
         }
 
         if (c == '\n')
-        {
             pos = 0;
-        }
     }
 
     return 0;

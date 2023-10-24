@@ -56,9 +56,7 @@ int getlinechars(char linechars[], int maxlen)
             c != '\\' && d == '"')
         {
             if (quote == IN && quotetype == 'd')
-            {
                 quote = OUT;
-            }
             else if (quote == OUT)
             {
                 quote = IN;
@@ -107,9 +105,7 @@ int getlinechars(char linechars[], int maxlen)
 
         // Check closing comment
         if (comment == IN && commenttype == 'i' && d == '\n')
-        {
             comment = OUT;
-        }
 
         if (comment == IN && commenttype == 'm' && c == '*' && d == '/')
         {
