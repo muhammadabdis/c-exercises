@@ -18,9 +18,7 @@ int main()
     char linechars[MAXLEN];
 
     while ((len = getlinechars(linechars, MAXLEN)) > 0)
-    {
         printf("%s", linechars);
-    }
 }
 
 int getlinechars(char linechars[], int maxlen)
@@ -69,9 +67,7 @@ int getlinechars(char linechars[], int maxlen)
             c != '\\' && d == '\'')
         {
             if (quote == IN && quotetype == 's')
-            {
                 quote = OUT;
-            }
             else if (quote == OUT)
             {
                 quote = IN;
