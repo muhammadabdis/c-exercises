@@ -19,8 +19,8 @@ int main()
 
 double atof(char s[])
 {
-    int i, sign, power, esign, epow;
-    double val, e;
+    int i, sign, power, esign, epow, e;
+    double val;
 
     for (i = 0; isspace(s[i]); i++)
         ;
@@ -51,10 +51,11 @@ double atof(char s[])
     for (epow = 0; isdigit(s[i]); i++)
         epow = 10 * epow + (s[i] - '0');
 
-    if (esign < 0)
-        for (e = 1.0; epow > 0; epow--, e /= 10.0);
-    else
-        for (e = 1.0; epow > 0; epow--, e *= 10.0);
+    for (e = 1; epow > 0; epow--, e *= 10)
+        ;
 
-    return sign * val / power * e;
+    if (esign < 0)
+        return sign * val / power / e;
+    else
+        return sign * val / power * e;
 }
