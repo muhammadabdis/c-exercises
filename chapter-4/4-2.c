@@ -41,7 +41,7 @@ double atof(char s[])
         power *= 10;
     }
 
-    if (s[i] == 'e')
+    if (s[i] == 'e' || s[i] == 'E')
         i++;
 
     esign = (s[i] == '-') ? -1 : 1;
