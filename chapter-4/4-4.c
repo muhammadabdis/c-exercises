@@ -69,7 +69,7 @@ int main()
             printf("= %.8g\n", pop());
             break;
         case 't':
-            top();
+            printf("top: %.8g\n", top());
             break;
         case 'd':
             op2 = pop(), push(op2), push(op2);
