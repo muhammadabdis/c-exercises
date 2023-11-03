@@ -173,14 +173,14 @@ void sfunc(char s[])
 {
     double op1, op2;
 
-    if (strcmp(s, "top") == 0)
+    if (strcmp(s, "c") == 0)
+        clear();
+    else if (strcmp(s, "top") == 0)
         printf("top: %.8g\n", top());
     else if (strcmp(s, "dup") == 0)
         op2 = pop(), push(op2), push(op2);
     else if (strcmp(s, "swa") == 0)
         op1 = pop(), op2 = pop(), push(op1), push(op2);
-    else if (strcmp(s, "c") == 0)
-        clear();
     else if (strcmp(s, "sin") == 0)
         push(sin(pop()));
     else if (strcmp(s, "cos") == 0)
