@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <math.h>
+#include <string.h>
 
 #define MAXOP 100
 #define BUFSIZE 100
@@ -83,18 +84,10 @@ int getop(char s[])
 
     i = 0;
 
-    if (c == '-')
-    {
-        if (isdigit(c = getch()))
-            s[++i] = c;
-        else
-            ungetch(c), c = s[0];
-    }
-
-    if (!isdigit(c) && c != '.')
+    if (!isdigit(c) && c != '.' && c != '-')
         return c;
 
-    if (isdigit(c))
+    if (c == '-' || isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
 
@@ -106,6 +99,9 @@ int getop(char s[])
 
     if (c != EOF)
         ungetch(c);
+
+    if (strcmp(s, "-") == 0)
+        return '-';
 
     return NUMBER;
 }
