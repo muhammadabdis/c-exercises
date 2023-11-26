@@ -24,10 +24,8 @@ void itoa(char s[], int n)
 {
     static int i;
 
-    if (n == 0) {
-        i = 0;
+    if (n == 0)
         return;
-    }
 
     itoa(s, n / 10);
 
