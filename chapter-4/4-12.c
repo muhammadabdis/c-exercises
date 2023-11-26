@@ -16,6 +16,8 @@ int main()
     itoa(s, 9812);
 
     printf("itoa: %s\n", s);
+
+    return 0;
 }
 
 void itoa(char s[], int n)
