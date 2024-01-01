@@ -14,7 +14,7 @@
 char buf[BUFSIZE];
 int bufp = 0;
 
-int getint(float *);
+int getfloat(float *);
 int getch(void);
 void ungetch(int);
 
@@ -23,7 +23,7 @@ int main()
     int n, i;
     float array[SIZE];
 
-    for (n = 0; n < SIZE && getint(&array[n]) != EOF; n++)
+    for (n = 0; n < SIZE && getfloat(&array[n]) != EOF; n++)
         ;
 
     for (i = 0; i < SIZE; i++)
@@ -32,7 +32,7 @@ int main()
     return 0;
 }
 
-int getint(float *pn)
+int getfloat(float *pn)
 {
     int c, sign;
     float power;
