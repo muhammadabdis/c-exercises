@@ -11,7 +11,7 @@ int strend(char *s, char *t);
 int main()
 {
     char s[] = "lorem";
-    char t[] = "kuy";
+    char t[] = "rem";
 
     printf("does end match: %d\n", strend(s, t));
 
@@ -27,7 +27,7 @@ int strend(char *s, char *t)
     while (*t != '\0')
         t++;
 
-    while (len > 0)
+    while (len >= 0)
     {
         if (*s == *t)
         {
