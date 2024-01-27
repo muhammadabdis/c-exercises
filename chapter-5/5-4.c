@@ -30,11 +30,7 @@ int strend(char *s, char *t)
     while (len >= 0)
     {
         if (*s == *t)
-        {
-            s--;
-            t--;
-            len--;
-        }
+            s--, t--, len--;
         else
             return 0;
     }
