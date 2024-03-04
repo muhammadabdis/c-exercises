@@ -1,10 +1,9 @@
 /*
-    Exercise 5-2. Write getfloat, the floating-point analog of getint. What
-    type does getfloat return as its function value?
-*/
+ * Exercise 5-2. Write getfloat, the floating-point analog of getint. What
+ * type does getfloat return as its function value?
+ */
 
 #include <stdio.h>
-
 #include <stdio.h>
 #include <ctype.h>
 
@@ -25,10 +24,8 @@ int main()
 
     for (n = 0; n < SIZE && getfloat(&array[n]) != EOF; n++)
         ;
-
     for (i = 0; i < SIZE; i++)
         printf("index %d: %f\n", i, array[i]);
-
     return 0;
 }
 
@@ -38,38 +35,28 @@ int getfloat(float *pn)
     float power;
 
     *pn = 0.0;
-
     while (isspace(c = getch()))
         ;
-
     if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.')
     {
         ungetch(c);
         return 0;
     }
-
     sign = (c == '-') ? -1 : 1;
-
     if (c == '+' || c == '-')
         c = getch();
-
     for (*pn = 0; isdigit(c); c = getch())
         *pn = 10.0 * *pn + (c - '0');
-
     if (c == '.')
         c = getch();
-
     for (power = 1.0; isdigit(c); c = getch())
     {
         *pn = 10.0 * *pn + (c - '0');
         power *= 10.0;
     }
-
     *pn *= sign / power;
-
     if (c != EOF)
         ungetch(c);
-
     return c;
 }
 

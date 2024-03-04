@@ -1,7 +1,7 @@
 /*
-    Exercise 5-4. Write the function strend(s, t), which returns 1 if the string
-    t occurs at the end of the string s, and zero otherwise.
-*/
+ * Exercise 5-4. Write the function strend(s, t), which returns 1 if the string
+ * t occurs at the end of the string s, and zero otherwise.
+ */
 
 #include <stdio.h>
 #include <string.h>
@@ -14,7 +14,6 @@ int main()
     char t[] = "rem";
 
     printf("does end match: %d\n", strend(s, t));
-
     return 0;
 }
 
@@ -26,7 +25,6 @@ int strend(char *s, char *t)
         s++;
     while (*t != '\0')
         t++;
-
     while (len >= 0)
     {
         if (*s == *t)
@@ -34,6 +32,5 @@ int strend(char *s, char *t)
         else
             return 0;
     }
-
     return 1;
 }
