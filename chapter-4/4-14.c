@@ -1,7 +1,7 @@
 /*
-    Exercise 4-14. Define a macro swap(t,x,y) that interchanges two arguments
-    of type t. (Block structure will help.)
-*/
+ * Exercise 4-14. Define a macro swap(t,x,y) that interchanges two arguments
+ * of type t. (Block structure will help.)
+ */
 
 #include <stdio.h>
 
@@ -16,9 +16,7 @@ int main() {
     char b = 'b';
 
     swap(char, a, b);
-
     dprint(a);
     dprint(b);
-
     return 0;
 }

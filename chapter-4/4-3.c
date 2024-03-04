@@ -1,7 +1,7 @@
 /*
-    Exercise 4-3. Given the basic framework, it's straightforward to extend the calculator.
-    Add the modulus (%) operator and provisions for negative numbers.
-*/
+ * Exercise 4-3. Given the basic framework, it's straightforward to extend the calculator.
+ * Add the modulus (%) operator and provisions for negative numbers.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,7 +70,6 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
@@ -81,28 +80,20 @@ int getop(char s[])
     while ((s[0] = c = getch()) && c == ' ' || c == '\t')
         ;
     s[1] = '\0';
-
     i = 0;
-
     if (!isdigit(c) && c != '.' && c != '-')
         return c;
-
     if (c == '-' || isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
-
     if (c == '.')
         while (isdigit(s[++i] = c = getch()))
             ;
-
     s[i] = '\0';
-
     if (c != EOF)
         ungetch(c);
-
     if (strcmp(s, "-") == 0)
         return '-';
-
     return NUMBER;
 }
 

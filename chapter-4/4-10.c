@@ -1,8 +1,8 @@
 /*
-    Exercise 4-10. An alternate organization uses getline to read an entire input
-    line; this makes getch and ungetch unnecessary. Revise the calculator to use
-    this approach.
-*/
+ * Exercise 4-10. An alternate organization uses getline to read an entire input
+ * line; this makes getch and ungetch unnecessary. Revise the calculator to use
+ * this approach.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +14,6 @@
 #define BUFSIZE 100
 #define MAXVAL 100
 #define MAXLINE 1000
-
 #define NUMBER '0'
 #define FUNC '1'
 #define VAR '2'
@@ -89,7 +88,6 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
@@ -104,43 +102,32 @@ int getop(char op[])
         else
             lp = 0;
     }
-
     while ((op[0] = c = line[lp++]) && c == ' ' || c == '\t')
         ;
     op[1] = '\0';
-
     i = 0;
-
     if (c >= 'A' && c <= 'Z')
         return VAR;
-
     if (c >= 'a' && c <= 'z')
     {
         while ((op[++i] = c = line[lp++]) >= 'a' && c <= 'z')
             ;
         op[i] = '\0';
         lp--;
-
         return FUNC;
     }
-
     if (!isdigit(c) && c != '.' && c != '-')
         return c;
-
     if (c == '-' || isdigit(c))
         while (isdigit(op[++i] = c = line[lp++]))
             ;
-
     if (c == '.')
         while (isdigit(op[++i] = c = line[lp++]))
             ;
-
     op[i] = '\0';
     lp--;
-
     if (strcmp(op, "-") == 0)
         return '-';
-
     return NUMBER;
 }
 
@@ -151,12 +138,9 @@ int getline(char s[], int lim)
     i = 0;
     while (i < lim - 1 && (c = getchar()) != EOF && c != '\n')
         s[i++] = c;
-
     if (c == '\n')
         s[i++] = '\n';
-
     s[i] = '\0';
-
     return i;
 }
 

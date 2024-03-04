@@ -1,7 +1,7 @@
 /*
-    Exercise 4-5. Add access to library functions like sin, exp, and pow. See
-    <math.h> in Appendix B, Section 4.
-*/
+ * Exercise 4-5. Add access to library functions like sin, exp, and pow. See
+ * <math.h> in Appendix B, Section 4.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +12,6 @@
 #define MAXOP 100
 #define BUFSIZE 100
 #define MAXVAL 100
-
 #define NUMBER '0'
 #define FUNC '1'
 
@@ -23,7 +22,7 @@ void push(double num);
 double pop();
 double top();
 void clear();
-void sfunc(char s[]);
+void stackfunc(char s[]);
 
 char buf[BUFSIZE];
 int bufp = 0;
@@ -44,7 +43,7 @@ int main()
             push(atof(s));
             break;
         case FUNC:
-            sfunc(s);
+            stackfunc(s);
             break;
         case '+':
             push(pop() + pop());
@@ -78,7 +77,6 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
@@ -89,40 +87,29 @@ int getop(char s[])
     while ((s[0] = c = getch()) && c == ' ' || c == '\t')
         ;
     s[1] = '\0';
-
     i = 0;
-
     if (c >= 'a' && c <= 'z')
     {
         while ((s[++i] = c = getch()) >= 'a' && c <= 'z')
             ;
         s[i] = '\0';
-
         if (c != EOF)
             ungetch(c);
-
         return FUNC;
     }
-
     if (!isdigit(c) && c != '.' && c != '-')
         return c;
-
     if (c == '-' || isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
-
     if (c == '.')
         while (isdigit(s[++i] = c = getch()))
             ;
-
     s[i] = '\0';
-
     if (c != EOF)
         ungetch(c);
-
     if (strcmp(s, "-") == 0)
         return '-';
-
     return NUMBER;
 }
 
@@ -169,7 +156,7 @@ void clear()
         val[--sp] = 0.0;
 }
 
-void sfunc(char s[])
+void stackfunc(char s[])
 {
     double op1, op2;
 

@@ -1,8 +1,8 @@
 /*
-    Exercise 4-6. Add commands for handling variables. (It's easy to provide
-    twenty-six variables with single-letter names.) Add a variable for the most
-    recently printed value.
-*/
+ * Exercise 4-6. Add commands for handling variables. (It's easy to provide
+ * twenty-six variables with single-letter names.) Add a variable for the most
+ * recently printed value.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,6 @@
 #define MAXOP 100
 #define BUFSIZE 100
 #define MAXVAL 100
-
 #define NUMBER '0'
 #define FUNC '1'
 #define VAR '2'
@@ -89,7 +88,6 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
@@ -100,43 +98,31 @@ int getop(char s[])
     while ((s[0] = c = getch()) && c == ' ' || c == '\t')
         ;
     s[1] = '\0';
-
     i = 0;
-
     if (c >= 'A' && c <= 'Z')
         return VAR;
-
     if (c >= 'a' && c <= 'z')
     {
         while ((s[++i] = c = getch()) >= 'a' && c <= 'z')
             ;
         s[i] = '\0';
-
         if (c != EOF)
             ungetch(c);
-
         return FUNC;
     }
-
     if (!isdigit(c) && c != '.' && c != '-')
         return c;
-
     if (c == '-' || isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
-
     if (c == '.')
         while (isdigit(s[++i] = c = getch()))
             ;
-
     s[i] = '\0';
-
     if (c != EOF)
         ungetch(c);
-
     if (strcmp(s, "-") == 0)
         return '-';
-
     return NUMBER;
 }
 

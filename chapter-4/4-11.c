@@ -1,7 +1,7 @@
 /*
-    Exercise 4-11. Modify getop so that it doesn't need to use ungetch. Hint:
-    use an internal static variable.
-*/
+ * Exercise 4-11. Modify getop so that it doesn't need to use ungetch. Hint:
+ * use an internal static variable.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,48 +70,37 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
 int getop(char s[])
 {
     int c, i;
-    static int lastc = 0;
+    static int lastchar = 0;
 
-    if (lastc != 0)
+    if (lastchar != 0)
     {
-        c = lastc;
-        lastc = 0;
+        c = lastchar;
+        lastchar = 0;
     } else
         c = getch();
-
     while ((s[0] = c) && c == ' ' || c == '\t')
         c = getch();
-
     s[1] = '\0';
-
     i = 0;
-
     if (!isdigit(c) && c != '.' && c != '-')
         return c;
-
     if (c == '-' || isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
-
     if (c == '.')
         while (isdigit(s[++i] = c = getch()))
             ;
-
     s[i] = '\0';
-
     if (c != EOF)
-        lastc = c;
-
+        lastchar = c;
     if (strcmp(s, "-") == 0)
         return '-';
-
     return NUMBER;
 }
 
