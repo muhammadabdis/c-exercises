@@ -1,8 +1,8 @@
 /*
-    Exercise 2-3. Write the function htoi ( s), which converts a string of hexadecimal
-    digits (including an optional Ox or ox) into its equivalent integer value.
-    The allowable digits are 0 through 9, a through f, and A through F.
-*/
+ * Exercise 2-3. Write the function htoi ( s), which converts a string of hexadecimal
+ * digits (including an optional Ox or ox) into its equivalent integer value.
+ * The allowable digits are 0 through 9, a through f, and A through F.
+ */
 
 #include <stdio.h>
 
@@ -17,10 +17,7 @@ int main()
     char line[MAXLINE];
 
     while ((len = getlinechars(line, MAXLINE)) > 0)
-    {
         printf("%d\n", htoi(line));
-    }
-
     return 0;
 }
 
@@ -30,15 +27,12 @@ int getlinechars(char s[], int lim)
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
         s[i] = c;
-
     if (c == '\n')
     {
         s[i] = c;
         ++i;
     }
-
     s[i] = '\0';
-
     return i;
 }
 
@@ -54,10 +48,8 @@ int htoi(char s[])
         if (s[i] == 'x' || s[i] == 'X')
             ++i;
     }
-
     n = 0;
     hexdigit = 0;
-
     for (; inhex == 1; ++i)
     {
         if (s[i] >= '0' && s[i] <= '9')
@@ -68,10 +60,8 @@ int htoi(char s[])
             hexdigit = s[i] - 'A' + 10;
         else
             inhex = 0;
-
         if (inhex) 
             n = 16 * n + hexdigit;
     }
-
     return n;
 }

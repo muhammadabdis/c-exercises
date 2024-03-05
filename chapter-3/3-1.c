@@ -13,7 +13,7 @@ int main()
     int arr[] = {4, 5, 6, 7, 8};
     int i = binsearch(8, arr, 5);
 
-    printf("found index: %d", i);
+    printf("found index: %d\n", i);
     return 0;
 }
 

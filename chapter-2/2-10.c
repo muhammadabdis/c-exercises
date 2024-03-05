@@ -1,7 +1,7 @@
 /*
-    Exercise 2-10. Rewrite the function lower, which converts upper case letters
-    to lower case, with a conditional expression instead of if-else.
-*/
+ * Exercise 2-10. Rewrite the function lower, which converts upper case letters
+ * to lower case, with a conditional expression instead of if-else.
+ */
 
 #include <stdio.h>
 
@@ -10,7 +10,6 @@ int lower(int c);
 int main()
 {
     printf("lower result: %c", lower('C'));
-
     return 0;
 }
 
