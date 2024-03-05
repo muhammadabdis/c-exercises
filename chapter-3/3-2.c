@@ -1,9 +1,9 @@
 /*
-    Exercise 3-2. Write a function escape ( s, t) that converts characters like
-    newline and tab into visible escape sequences like \n and \ t as it copies the
-    string t to s. Use a switch. Write a function for the other direction as well,
-    converting escape sequences into the real characters.
-*/
+ * Exercise 3-2. Write a function escape ( s, t) that converts characters like
+ * newline and tab into visible escape sequences like \n and \ t as it copies the
+ * string t to s. Use a switch. Write a function for the other direction as well,
+ * converting escape sequences into the real characters.
+ */
 
 #include <stdio.h>
 
@@ -23,7 +23,6 @@ int main()
         escape(s, t);
         printf("%s", s);
     }
-
     return 0;
 }
 
@@ -33,9 +32,7 @@ int getlinechars(char line[], int lim)
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF; ++i)
         line[i] = c;
-
     line[i] = '\0';
-
     return i;
 }
 
@@ -61,7 +58,6 @@ void escape(char s[], char t[])
             s[j] = t[i];
             break;
         }
-
         j++;
     }
 }
