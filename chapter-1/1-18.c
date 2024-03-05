@@ -1,7 +1,7 @@
 /*
-    Exercise 1-18. Write a program to remove trailing blanks and tabs from each
-    line of input, and to delete entirely blank lines.
-*/
+ * Exercise 1-18. Write a program to remove trailing blanks and tabs from each
+ * line of input, and to delete entirely blank lines.
+ */
 
 #include <stdio.h>
 
@@ -20,7 +20,6 @@ int main()
         if ((trimmedlen = removetrail(line)) > 0)
             printf("%s", line);
     }
-
     return 0;
 }
 
@@ -30,12 +29,9 @@ int getlinechars(char s[], int lim)
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
         s[i] = c;
-
     if (c == '\n')
         s[i++] = c;
-
     s[i] = '\0';
-
     return i;
 }
 
@@ -45,12 +41,9 @@ int removetrail(char line[])
 
     for (i = 0; line[i] != '\n'; ++i)
         ;
-
     --i;
-
     while (line[i] == ' ' || line[i] == '\t')
         --i;
-
     if (i >= 0)
     {
         ++i;
@@ -58,6 +51,5 @@ int removetrail(char line[])
         ++i;
         line[i] = '\0';
     }
-
     return i;
 }

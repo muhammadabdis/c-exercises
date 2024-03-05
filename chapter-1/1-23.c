@@ -1,7 +1,7 @@
 /*
-    Exercise 1-23. Write a program to remove all comments from a C program.
-    Don't forget to handle quoted strings and character constants properly. C comments do not nest.
-*/
+ * Exercise 1-23. Write a program to remove all comments from a C program.
+ * Don't forget to handle quoted strings and character constants properly. C comments do not nest.
+ */
 
 #include <stdio.h>
 
@@ -24,27 +24,22 @@ int main()
 int getlinechars(char linechars[], int maxlen)
 {
     int c, d;
-
     int comment = OUT;
     char commenttype = '\0';
-
-    c = getchar();
-
     int quote = OUT;
     char quotetype = '\0';
+    c = getchar();
 
     if (c == '"')
     {
         quote = IN;
         quotetype = 'd';
     }
-
     if (c == '\'')
     {
         quote = IN;
         quotetype = 's';
     }
-
     int i = 0;
     while ((d = getchar()) != EOF && i < maxlen - 1)
     {
@@ -61,7 +56,6 @@ int getlinechars(char linechars[], int maxlen)
                 quotetype = 'd';
             }
         }
-
         if (
             comment == OUT &&
             c != '\\' && d == '\'')
@@ -74,7 +68,6 @@ int getlinechars(char linechars[], int maxlen)
                 quotetype = 's';
             }
         }
-
         // Check opening comment
         if (
             comment == OUT && quote == OUT &&
@@ -83,7 +76,6 @@ int getlinechars(char linechars[], int maxlen)
             comment = IN;
             commenttype = 'i';
         }
-
         if (
             comment == OUT && quote == OUT &&
             c == '/' && d == '*')
@@ -91,14 +83,12 @@ int getlinechars(char linechars[], int maxlen)
             comment = IN;
             commenttype = 'm';
         }
-
         // Print non comment
         if (comment == OUT)
         {
             linechars[i] = c;
             ++i;
         }
-
         // Check closing comment
         if (comment == IN && commenttype == 'i' && d == '\n')
             comment = OUT;
@@ -108,13 +98,10 @@ int getlinechars(char linechars[], int maxlen)
             comment = OUT;
             d = getchar();
         }
-
         // Set previous value
         c = d;
     }
-
     linechars[i] = c;
     linechars[i + 1] = '\0';
-
     return i;
 }
