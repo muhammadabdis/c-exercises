@@ -1,5 +1,5 @@
 /*
- * Rewrite appropriate programs from earlier chapters and exercises
+ * Exercise 5-6. Rewrite appropriate programs from earlier chapters and exercises
  * with pointers instead of array indexing. Good possibilities include getline
  * (Chapters 1 and 4), atoi, itoa, and their variants (Chapters 2, 3, and 4),
  * reverse (Chapter 3), and strindex and getop (Chapter 4).
@@ -80,8 +80,7 @@ void reverse(char *s)
     while (*p != '\0')
         p++;
     p--;
-    while (s < p)
-    {
+    while (s < p) {
         c = *p;
         *p-- = *s;
         *s++ = c;
@@ -92,8 +91,7 @@ int strindex(char *s, char *t)
 {
     char *p = s, *u, *q;
 
-    for (; *p != '\0'; p++)
-    {
+    for (; *p != '\0'; p++) {
         q = p;
         for (u = t; *u != '\0' && *u == *q; u++, q++)
             ;

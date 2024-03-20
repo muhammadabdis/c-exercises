@@ -38,10 +38,8 @@ int main()
     int optype, var;
     double val2;
 
-    while ((optype = getop(op)) != EOF)
-    {
-        switch (optype)
-        {
+    while ((optype = getop(op)) != EOF) {
+        switch (optype) {
         case NUMBER:
             push(atof(op));
             break;
@@ -95,8 +93,7 @@ int getop(char op[])
 {
     int c, i;
 
-    if (line[lp] == '\0')
-    {
+    if (line[lp] == '\0') {
         if (getline(line, MAXLINE) == 0)
             return EOF;
         else
@@ -108,8 +105,7 @@ int getop(char op[])
     i = 0;
     if (c >= 'A' && c <= 'Z')
         return VAR;
-    if (c >= 'a' && c <= 'z')
-    {
+    if (c >= 'a' && c <= 'z') {
         while ((op[++i] = c = line[lp++]) >= 'a' && c <= 'z')
             ;
         op[i] = '\0';
@@ -156,8 +152,7 @@ double pop()
 {
     if (vp > 0)
         return val[--vp];
-    else
-    {
+    else {
         printf("error: stack empty\n");
         return 0.0;
     }

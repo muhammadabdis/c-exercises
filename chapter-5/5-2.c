@@ -37,8 +37,7 @@ int getfloat(float *pn)
     *pn = 0.0;
     while (isspace(c = getch()))
         ;
-    if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.')
-    {
+    if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
         ungetch(c);
         return 0;
     }
@@ -49,8 +48,7 @@ int getfloat(float *pn)
         *pn = 10.0 * *pn + (c - '0');
     if (c == '.')
         c = getch();
-    for (power = 1.0; isdigit(c); c = getch())
-    {
+    for (power = 1.0; isdigit(c); c = getch()) {
         *pn = 10.0 * *pn + (c - '0');
         power *= 10.0;
     }

@@ -35,10 +35,8 @@ int main()
     int type;
     double op2;
 
-    while ((type = getop(s)) != EOF)
-    {
-        switch (type)
-        {
+    while ((type = getop(s)) != EOF) {
+        switch (type) {
         case NUMBER:
             push(atof(s));
             break;
@@ -88,8 +86,7 @@ int getop(char s[])
         ;
     s[1] = '\0';
     i = 0;
-    if (c >= 'a' && c <= 'z')
-    {
+    if (c >= 'a' && c <= 'z') {
         while ((s[++i] = c = getch()) >= 'a' && c <= 'z')
             ;
         s[i] = '\0';
@@ -138,8 +135,7 @@ double pop()
 {
     if (sp > 0)
         return val[--sp];
-    else
-    {
+    else {
         printf("error: stack empty\n");
         return 0.0;
     }

@@ -34,8 +34,7 @@ int getint(int *pn)
     *pn = 0;
     while (isspace(c = getch()))
         ;
-    if (c != EOF && c != '+' && c != '-' && !isdigit(c))
-    {
+    if (c != EOF && c != '+' && c != '-' && !isdigit(c)) {
         ungetch(c);
         return 0;
     }

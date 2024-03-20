@@ -27,8 +27,7 @@ void reverse(char s[])
         return;
     j++;
     reverse(s);
-    if (i < j)
-    {
+    if (i < j) {
         temp = s[i];
         s[i++] = s[--j];
         s[j] = temp;

@@ -51,8 +51,7 @@ void stringncat(char *s, char *t, int n)
 
 int stringncmp(char *s, char *t, int n)
 {
-    while (n-- > 0)
-    {
+    while (n-- > 0) {
         if (*s != *t)
             return *s - *t;
         if (*s == '\0')
