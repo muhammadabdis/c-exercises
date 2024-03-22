@@ -1,6 +1,6 @@
 /*
- * Exercise 5-8. There is no error checking in day_of_year or month_day.
- * Remedy this defect.
+ * Exercise 5-9. Rewrite the routines day_of_year and month_day with
+ * pointers instead of indexing.
  */
 
 #include <stdio.h>
@@ -28,10 +28,10 @@ int day_of_year(int year, int month, int day)
     int i, leap;
 
     leap = year%4 == 0 && year%100 != 0 || year%400 == 0;
-    if (year < 1 || month < 1 || day < 1 || month > 12 || day > daytab[leap][month])
+    if (year < 1 || month < 1 || day < 1 || month > 12 || day > *(*(daytab + leap) + month))
         return -1;
     for (i = 1; i < month; i++)
-        day += daytab[leap][i];
+        day += *(*(daytab + leap) + i);
     return day;
 }
 
@@ -45,8 +45,8 @@ void month_day(int year, int yearday, int *pmonth, int *pday)
         *pday = -1;
         return;
     }
-    for (i = 1; yearday > daytab[leap][i]; i++)
-        yearday -= daytab[leap][i];
+    for (i = 1; yearday > *(*(daytab + leap) + i); i++)
+        yearday -= *(*(daytab + leap) + i);
     *pmonth = i;
     *pday = yearday;
 }
