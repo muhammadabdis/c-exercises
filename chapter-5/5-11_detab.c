@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 {
     int col, c, i, j;
     
-    col = 0; i = 0;
-    while (--argc > 0)
+    col = 0;
+    for (i = 0; --argc > 0; i++)
 	tabstops[i++] = atoi(*++argv);
     while ((c = getchar()) != EOF) {
         if (c == '\t') {
