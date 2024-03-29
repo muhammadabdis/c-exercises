@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 {
     int c, ns, pos, i, j;
 
-    while (--argc > 0)
-        tabstops[j++] = atoi(*++argv);
+    for (j = 0; --argc > 0; j++)
+        tabstops[j] = atoi(*++argv);
     while ((c = getchar()) != EOF) {
         if (pos >= tabstops[tp])
             ++tp;

@@ -15,21 +15,21 @@ int tp;
 int main(int argc, char *argv[])
 {
     int col, c, i, j;
-    
+
     col = 0;
     for (i = 0; --argc > 0; i++)
-	tabstops[i++] = atoi(*++argv);
+	    tabstops[i] = atoi(*++argv);
     while ((c = getchar()) != EOF) {
         if (c == '\t') {
             for (j = 0; j < tabstops[tp] - col; ++j) {
                 putchar(' ');
                 ++col;
             }
-	    tp++;
+	        tp++;
         } else if (c == '\n') {
             putchar(c);
-	    tp = 0;
-	} else {
+            tp = 0;
+        } else {
             putchar(c);
             ++col;
         }
