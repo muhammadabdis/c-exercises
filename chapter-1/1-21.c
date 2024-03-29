@@ -11,33 +11,24 @@
 
 int main()
 {
-    int c;
-    int ns, pos;
-    ns = pos = 0;
+    int c, ns, pos, i, tabstop;
 
-    while ((c = getchar()) != EOF)
-    {
-        if (c == ' ')
-        {
+    while ((c = getchar()) != EOF) {
+        if (c == ' ') {
             ++ns;
-            // convert space to tab
-            int tabstop = TAB - (pos % TAB);
-            if (ns == tabstop)
-            {
+            tabstop = TAB - (pos % TAB);
+            if (ns == tabstop) {
                 putchar('\t');
-                pos = pos + tabstop;
                 ns = 0;
+                pos += tabstop;
             }
-        }
-        else
-        {
-            // print remaining space
-            for (int i = 0; i < ns; ++i)
+        } else {
+            for (i = 0; i < ns; ++i)
                 putchar(' ');
-            pos = pos + ns;
-            ns = 0;
+            pos += ns;
             putchar(c);
-            ++pos;
+            ns = 0;
+            pos++;
         }
         if (c == '\n')
             pos = 0;
