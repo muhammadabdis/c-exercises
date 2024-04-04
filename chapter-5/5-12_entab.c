@@ -27,7 +27,6 @@ int main(int argc, char **argv)
             break;
         }
     }
-    printf("m: %d, n: %d\n", m, n);
     while ((c = getchar()) != EOF) {
         if (col == m) {
             tab = n;
