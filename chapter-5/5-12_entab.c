@@ -35,7 +35,7 @@ int main(int argc, char **argv)
         if (c == ' ') {
             ns++;
             if (ns == (tab - (col % tab))) {
-                printf("%s", "<tab>");
+                putchar('\t');
                 col += ns;
                 ns = 0;
             }
@@ -43,10 +43,10 @@ int main(int argc, char **argv)
             ns = col = 0;
         } else {
             for (; ns > 0; ns--) {
-                printf("%s", "<space>");
+                putchar(' ');
                 col++;
             }
-            printf("%c", c);
+            putchar(c);
             col++;
         }
     }
